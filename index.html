@@ -15,6 +15,28 @@
 
         <main>
             <div class="calculator-section">
+                <div class="totals-section">
+                    <div class="total-box">
+                        <h3>Stage 1 Total</h3>
+                        <div class="total-value" id="stage1-total">0</div>
+                    </div>
+                    <div class="total-box">
+                        <h3>Stage 2 Total</h3>
+                        <div class="total-value" id="stage2-total">0</div>
+                    </div>
+                    <div class="total-box">
+                        <h3>Stage 3 Total</h3>
+                        <div class="total-value" id="stage3-total">0</div>
+                    </div>
+                    <div class="total-box">
+                        <h3>Stage 4 Total</h3>
+                        <div class="total-value" id="stage4-total">0</div>
+                    </div>
+                    <div class="total-box overall-total">
+                        <h3>Overall Total</h3>
+                        <div class="total-value" id="overall-total">0</div>
+                    </div>
+                </div>
                 <table id="points-table" class="points-table">
                     <thead>
                         <tr>
@@ -120,10 +142,6 @@
                             <td><input type="number" class="inventory-input" data-activity="rubies-1" value="0" min="0"></td>
                             <td class="total-cell" data-activity="rubies-1">0</td>
                         </tr>
-                        <tr class="stage-total">
-                            <td colspan="5" class="stage-total-label">Stage 1 Total</td>
-                            <td class="stage-total-value" data-stage="stage1">0</td>
-                        </tr>
 
                         <!-- Stage Two: Tech Boost -->
                         <tr class="stage-header">
@@ -218,10 +236,6 @@
                             <td><input type="number" class="inventory-input" data-activity="rubies-2" value="0" min="0"></td>
                             <td class="total-cell" data-activity="rubies-2">0</td>
                         </tr>
-                        <tr class="stage-total">
-                            <td colspan="5" class="stage-total-label">Stage 2 Total</td>
-                            <td class="stage-total-value" data-stage="stage2">0</td>
-                        </tr>
 
                         <!-- Stage Three: Global Battles -->
                         <tr class="stage-header">
@@ -295,10 +309,6 @@
                             <td><input type="number" class="inventory-input" data-activity="help-rally" value="0" min="0"></td>
                             <td class="total-cell" data-activity="help-rally">0</td>
                         </tr>
-                        <tr class="stage-total">
-                            <td colspan="5" class="stage-total-label">Stage 3 Total</td>
-                            <td class="stage-total-value" data-stage="stage3">0</td>
-                        </tr>
 
                         <!-- Stage Four: Call of the Hero -->
                         <tr class="stage-header">
@@ -364,10 +374,6 @@
                             <td class="points-cell">120000</td>
                             <td><input type="number" class="inventory-input" data-activity="soul-stone" value="0" min="0"></td>
                             <td class="total-cell" data-activity="soul-stone">0</td>
-                        </tr>
-                        <tr class="stage-total">
-                            <td colspan="5" class="stage-total-label">Stage 4 Total</td>
-                            <td class="stage-total-value" data-stage="stage4">0</td>
                         </tr>
                     </tbody>
                 </table>

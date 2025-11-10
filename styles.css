@@ -56,6 +56,63 @@ header h1 {
     box-shadow: var(--shadow-hover);
 }
 
+.totals-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.total-box {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.total-box:hover {
+    transform: translateY(-5px);
+}
+
+.total-box h3 {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.total-box.overall-total {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    grid-column: 1 / -1;
+}
+
+.total-value {
+    font-size: 2rem;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    line-height: 1.2;
+    transition: font-size 0.2s ease;
+}
+
+@media (max-width: 1200px) {
+    .total-value {
+        font-size: 1.5rem;
+    }
+}
+
 .input-group {
     margin-bottom: 25px;
 }
@@ -305,20 +362,6 @@ footer {
     padding-top: 15px;
 }
 
-.stage-total {
-    background: var(--bg-color);
-    font-weight: 700;
-}
-
-.stage-total-label {
-    text-align: right;
-    padding-right: 15px;
-}
-
-.stage-total-value {
-    color: var(--primary-color);
-    font-size: 1.1rem;
-}
 
 @media (max-width: 768px) {
     header h1 {
@@ -327,6 +370,18 @@ footer {
 
     .calculator-section {
         padding: 20px;
+    }
+    
+    .totals-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .total-box.overall-total {
+        grid-column: 1;
+    }
+    
+    .total-value {
+        font-size: 1.25rem;
     }
 
     .results-section {

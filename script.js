@@ -137,10 +137,35 @@ class PointsCalculator {
             }
         });
 
-        // Update Stage Total
-        const stageTotalCell = document.querySelector(`.stage-total-value[data-stage="${stageKey}"]`);
-        if (stageTotalCell) {
-            stageTotalCell.textContent = this.formatNumber(stageTotal);
+        // Update Stage Total in the top box
+        const stageTotalBox = document.getElementById(`${stageKey}-total`);
+        if (stageTotalBox) {
+            stageTotalBox.textContent = this.formatNumber(stageTotal);
+            this.adjustFontSize(stageTotalBox);
+        }
+        
+        // Calculate overall total after updating this stage
+        this.calculateOverallTotal();
+    }
+    
+    calculateOverallTotal() {
+        let overallTotal = 0;
+        
+        // Sum all stage totals
+        Object.keys(this.stages).forEach(stageKey => {
+            const stageTotalBox = document.getElementById(`${stageKey}-total`);
+            if (stageTotalBox) {
+                const textValue = stageTotalBox.textContent.replace(/,/g, '');
+                const value = parseFloat(textValue) || 0;
+                overallTotal += value;
+            }
+        });
+        
+        // Update Overall Total box
+        const overallTotalBox = document.getElementById('overall-total');
+        if (overallTotalBox) {
+            overallTotalBox.textContent = this.formatNumber(overallTotal);
+            this.adjustFontSize(overallTotalBox);
         }
     }
 
@@ -150,6 +175,27 @@ class PointsCalculator {
             const stageNumber = stageKey.replace('stage', '');
             this.calculateStage(stageNumber);
         });
+        
+        // Adjust font sizes for all total boxes after a brief delay to ensure layout is complete
+        setTimeout(() => {
+            this.adjustAllFontSizes();
+        }, 100);
+    }
+    
+    adjustAllFontSizes() {
+        // Adjust font size for all stage totals
+        Object.keys(this.stages).forEach(stageKey => {
+            const stageTotalBox = document.getElementById(`${stageKey}-total`);
+            if (stageTotalBox) {
+                this.adjustFontSize(stageTotalBox);
+            }
+        });
+        
+        // Adjust font size for overall total
+        const overallTotalBox = document.getElementById('overall-total');
+        if (overallTotalBox) {
+            this.adjustFontSize(overallTotalBox);
+        }
     }
 
     formatNumber(num) {
@@ -165,10 +211,60 @@ class PointsCalculator {
             minimumFractionDigits: 0
         });
     }
+    
+    adjustFontSize(element) {
+        if (!element) return;
+        
+        // Reset to base font size
+        element.style.fontSize = '';
+        
+        // Get the container width (parent total-box)
+        const container = element.closest('.total-box');
+        if (!container) return;
+        
+        const containerWidth = container.clientWidth - 40; // Account for padding
+        const baseFontSize = parseFloat(window.getComputedStyle(element).fontSize);
+        let fontSize = baseFontSize;
+        
+        // Create a temporary element to measure text width
+        const temp = document.createElement('span');
+        temp.style.visibility = 'hidden';
+        temp.style.position = 'absolute';
+        temp.style.whiteSpace = 'nowrap';
+        temp.style.fontSize = `${fontSize}px`;
+        temp.style.fontWeight = 'bold';
+        temp.textContent = element.textContent;
+        document.body.appendChild(temp);
+        
+        let textWidth = temp.offsetWidth;
+        
+        // Reduce font size until text fits
+        while (textWidth > containerWidth && fontSize > 0.75) {
+            fontSize -= 0.5;
+            temp.style.fontSize = `${fontSize}px`;
+            textWidth = temp.offsetWidth;
+        }
+        
+        document.body.removeChild(temp);
+        
+        // Apply the calculated font size
+        element.style.fontSize = `${fontSize}px`;
+    }
 }
 
 // Initialize calculator when DOM is loaded
 let calculator;
 document.addEventListener('DOMContentLoaded', () => {
     calculator = new PointsCalculator();
+    
+    // Adjust font sizes on window resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            if (calculator) {
+                calculator.adjustAllFontSizes();
+            }
+        }, 250);
+    });
 });
