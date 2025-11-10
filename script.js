@@ -65,8 +65,42 @@ class PointsCalculator {
         // Set up event listeners for all stages
         this.setupAllListeners();
         
+        // Set up click handlers for stage total boxes
+        this.setupStageClickHandlers();
+        
         // Initial calculation for all stages
         this.calculateAllStages();
+    }
+    
+    setupStageClickHandlers() {
+        // Add click handlers to all clickable stage total boxes
+        const stageBoxes = document.querySelectorAll('.total-box.clickable');
+        stageBoxes.forEach(box => {
+            box.addEventListener('click', () => {
+                const stageId = box.getAttribute('data-stage');
+                this.scrollToStage(stageId);
+            });
+        });
+    }
+    
+    scrollToStage(stageId) {
+        const stageHeader = document.getElementById(`${stageId}-header`);
+        if (stageHeader) {
+            // Scroll to the stage header with smooth behavior
+            stageHeader.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            
+            // Add a highlight effect
+            stageHeader.style.transition = 'background-color 0.3s ease';
+            stageHeader.style.backgroundColor = 'rgba(74, 144, 226, 0.2)';
+            
+            // Remove highlight after animation
+            setTimeout(() => {
+                stageHeader.style.backgroundColor = '';
+            }, 2000);
+        }
     }
 
     setupAllListeners() {

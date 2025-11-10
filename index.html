@@ -16,19 +16,19 @@
         <main>
             <div class="calculator-section">
                 <div class="totals-section">
-                    <div class="total-box">
+                    <div class="total-box clickable" data-stage="stage1">
                         <h3>Stage 1 Total</h3>
                         <div class="total-value" id="stage1-total">0</div>
                     </div>
-                    <div class="total-box">
+                    <div class="total-box clickable" data-stage="stage2">
                         <h3>Stage 2 Total</h3>
                         <div class="total-value" id="stage2-total">0</div>
                     </div>
-                    <div class="total-box">
+                    <div class="total-box clickable" data-stage="stage3">
                         <h3>Stage 3 Total</h3>
                         <div class="total-value" id="stage3-total">0</div>
                     </div>
-                    <div class="total-box">
+                    <div class="total-box clickable" data-stage="stage4">
                         <h3>Stage 4 Total</h3>
                         <div class="total-value" id="stage4-total">0</div>
                     </div>
@@ -50,7 +50,7 @@
                     </thead>
                     <tbody>
                         <!-- Stage One: Territory Revival -->
-                        <tr class="stage-header">
+                        <tr class="stage-header" id="stage1-header">
                             <td rowspan="13">Stage One: Territory Revival</td>
                             <td>Buy 1 Diamonds from Packs</td>
                             <td class="units-column"><input type="number" class="units-input" data-activity="buy-diamonds-1" value="1" min="0" readonly></td>
@@ -144,7 +144,7 @@
                         </tr>
 
                         <!-- Stage Two: Tech Boost -->
-                        <tr class="stage-header">
+                        <tr class="stage-header" id="stage2-header">
                             <td rowspan="13">Stage Two: Tech Boost</td>
                             <td>Buy 1 Diamonds from Packs</td>
                             <td class="units-column"><input type="number" class="units-input" readonly data-activity="buy-diamonds-2" value="1" min="0"></td>
@@ -238,7 +238,7 @@
                         </tr>
 
                         <!-- Stage Three: Global Battles -->
-                        <tr class="stage-header">
+                        <tr class="stage-header" id="stage3-header">
                             <td rowspan="10">Stage Three: Global Battles</td>
                             <td>Use 1 Diamonds from Packs</td>
                             <td class="units-column"><input type="number" class="units-input" readonly data-activity="use-diamonds-3" value="1" min="0"></td>
@@ -311,7 +311,7 @@
                         </tr>
 
                         <!-- Stage Four: Call of the Hero -->
-                        <tr class="stage-header">
+                        <tr class="stage-header" id="stage4-header">
                             <td rowspan="9">Stage Four: Call of the Hero</td>
                             <td>Use 1 Diamonds from Packs</td>
                             <td class="units-column"><input type="number" class="units-input" readonly data-activity="use-diamonds-4" value="1" min="0"></td>

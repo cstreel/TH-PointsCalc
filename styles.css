@@ -75,8 +75,17 @@ header h1 {
     overflow: hidden;
 }
 
-.total-box:hover {
+.total-box.clickable {
+    cursor: pointer;
+}
+
+.total-box.clickable:hover {
     transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.total-box.clickable:active {
+    transform: translateY(-2px);
 }
 
 .total-box h3 {
