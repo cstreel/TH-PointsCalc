@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Points Calculator - Top Heroes | KvK Four Nations</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚔️ Points Calculator</h1>
+            <p class="subtitle">KvK - Four Nations | Top Heroes</p>
+        </header>
+
+        <main>
+            <div class="calculator-section">
+                <table id="points-table" class="points-table">
+                    <thead>
+                        <tr>
+                            <th>Stage</th>
+                            <th>Activity</th>
+                            <th class="units-column">Units</th>
+                            <th>Points</th>
+                            <th>Inventory</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Stage One: Territory Revival -->
+                        <tr class="stage-header">
+                            <td rowspan="13">Stage One: Territory Revival</td>
+                            <td>Buy 1 Diamonds from Packs</td>
+                            <td class="units-column"><input type="number" class="units-input" data-activity="buy-diamonds-1" value="1" min="0" readonly></td>
+                            <td class="points-cell">40</td>
+                            <td><input type="number" class="inventory-input" data-activity="buy-diamonds-1" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="buy-diamonds-1">0</td>
+                        </tr>
+                        <tr>
+                            <td>Consume 2000 Arcane Magic Stones</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="consume-magic-stones" value="2000" min="0"></td>
+                            <td class="points-cell">600</td>
+                            <td><input type="number" class="inventory-input" data-activity="consume-magic-stones" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="consume-magic-stones">0</td>
+                        </tr>
+                        <tr>
+                            <td>Consume 1 Arcane Crystal</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="consume-crystal" value="1" min="0"></td>
+                            <td class="points-cell">1200</td>
+                            <td><input type="number" class="inventory-input" data-activity="consume-crystal" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="consume-crystal">0</td>
+                        </tr>
+                        <tr>
+                            <td>Summon relic in the tavern 1 time</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="summon-relic" value="1" min="0"></td>
+                            <td class="points-cell">1500</td>
+                            <td><input type="number" class="inventory-input" data-activity="summon-relic" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="summon-relic">0</td>
+                        </tr>
+                        <tr>
+                            <td>Use 1 Relic - Rare</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="relic-rare" value="1" min="0"></td>
+                            <td class="points-cell">200</td>
+                            <td><input type="number" class="inventory-input" data-activity="relic-rare" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="relic-rare">0</td>
+                        </tr>
+                        <tr>
+                            <td>Use 1 Relic - Epic</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="relic-epic" value="1" min="0"></td>
+                            <td class="points-cell">1000</td>
+                            <td><input type="number" class="inventory-input" data-activity="relic-epic" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="relic-epic">0</td>
+                        </tr>
+                        <tr>
+                            <td>Use 1 Relic - Legendary</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="relic-legendary" value="1" min="0"></td>
+                            <td class="points-cell">5000</td>
+                            <td><input type="number" class="inventory-input" data-activity="relic-legendary" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="relic-legendary">0</td>
+                        </tr>
+                        <tr>
+                            <td>Boost Facility Power by 1 pt</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="boost-facility" value="1" min="0"></td>
+                            <td class="points-cell">40</td>
+                            <td><input type="number" class="inventory-input" data-activity="boost-facility" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="boost-facility">0</td>
+                        </tr>
+                        <tr>
+                            <td>Use 1min Construction Speed-up</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="construction-speedup" value="1" min="0"></td>
+                            <td class="points-cell">30</td>
+                            <td><input type="number" class="inventory-input" data-activity="construction-speedup" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="construction-speedup">0</td>
+                        </tr>
+                        <tr>
+                            <td>Use 1 Dragon Essence</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="dragon-essence-1" value="1" min="0"></td>
+                            <td class="points-cell">1200</td>
+                            <td><input type="number" class="inventory-input" data-activity="dragon-essence-1" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="dragon-essence-1">0</td>
+                        </tr>
+                        <tr>
+                            <td>Use 400 Timber</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="timber" value="400" min="0"></td>
+                            <td class="points-cell">1</td>
+                            <td><input type="number" class="inventory-input" data-activity="timber" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="timber">0</td>
+                        </tr>
+                        <tr>
+                            <td>Use 400 Stone</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="stone" value="400" min="0"></td>
+                            <td class="points-cell">1</td>
+                            <td><input type="number" class="inventory-input" data-activity="stone" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="stone">0</td>
+                        </tr>
+                        <tr>
+                            <td>Use 200 Rubies</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="rubies-1" value="200" min="0"></td>
+                            <td class="points-cell">1</td>
+                            <td><input type="number" class="inventory-input" data-activity="rubies-1" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="rubies-1">0</td>
+                        </tr>
+                        <tr class="stage-total">
+                            <td colspan="5" class="stage-total-label">Stage 1 Total</td>
+                            <td class="stage-total-value" data-stage="stage1">0</td>
+                        </tr>
+
+                        <!-- Stage Two: Tech Boost -->
+                        <tr class="stage-header">
+                            <td rowspan="13">Stage Two: Tech Boost</td>
+                            <td>Buy 1 Diamonds from Packs</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="buy-diamonds-2" value="1" min="0"></td>
+                            <td class="points-cell">40</td>
+                            <td><input type="number" class="inventory-input" data-activity="buy-diamonds-2" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="buy-diamonds-2">0</td>
+                        </tr>
+                        <tr>
+                            <td>Consume 2000 Arcane Magic Stones</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="consume-magic-stones-2" value="2000" min="0"></td>
+                            <td class="points-cell">600</td>
+                            <td><input type="number" class="inventory-input" data-activity="consume-magic-stones-2" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="consume-magic-stones-2">0</td>
+                        </tr>
+                        <tr>
+                            <td>Consume 1 Arcane Crystal</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="consume-crystal-2" value="1" min="0"></td>
+                            <td class="points-cell">1200</td>
+                            <td><input type="number" class="inventory-input" data-activity="consume-crystal-2" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="consume-crystal-2">0</td>
+                        </tr>
+                        <tr>
+                            <td>Summon relic in the tavern 1 time</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="summon-relic-2" value="1" min="0"></td>
+                            <td class="points-cell">1500</td>
+                            <td><input type="number" class="inventory-input" data-activity="summon-relic-2" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="summon-relic-2">0</td>
+                        </tr>
+                        <tr>
+                            <td>Use 1 Relic - Rare</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="relic-rare-2" value="1" min="0"></td>
+                            <td class="points-cell">200</td>
+                            <td><input type="number" class="inventory-input" data-activity="relic-rare-2" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="relic-rare-2">0</td>
+                        </tr>
+                        <tr>
+                            <td>Use 1 Relic - Epic</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="relic-epic-2" value="1" min="0"></td>
+                            <td class="points-cell">1000</td>
+                            <td><input type="number" class="inventory-input" data-activity="relic-epic-2" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="relic-epic-2">0</td>
+                        </tr>
+                        <tr>
+                            <td>Use 1 Relic - Legendary</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="relic-legendary-2" value="1" min="0"></td>
+                            <td class="points-cell">5000</td>
+                            <td><input type="number" class="inventory-input" data-activity="relic-legendary-2" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="relic-legendary-2">0</td>
+                        </tr>
+                        <tr>
+                            <td>Boost Technology by 1 pt</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="boost-tech" value="1" min="0"></td>
+                            <td class="points-cell">40</td>
+                            <td><input type="number" class="inventory-input" data-activity="boost-tech" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="boost-tech">0</td>
+                        </tr>
+                        <tr>
+                            <td>Use 1min Research Speed-up</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="research-speedup" value="1" min="0"></td>
+                            <td class="points-cell">30</td>
+                            <td><input type="number" class="inventory-input" data-activity="research-speedup" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="research-speedup">0</td>
+                        </tr>
+                        <tr>
+                            <td>Use 1 Dragon Essence</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="dragon-essence-2" value="1" min="0"></td>
+                            <td class="points-cell">1200</td>
+                            <td><input type="number" class="inventory-input" data-activity="dragon-essence-2" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="dragon-essence-2">0</td>
+                        </tr>
+                        <tr>
+                            <td>Use 400 Timber</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="timber-2" value="400" min="0"></td>
+                            <td class="points-cell">1</td>
+                            <td><input type="number" class="inventory-input" data-activity="timber-2" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="timber-2">0</td>
+                        </tr>
+                        <tr>
+                            <td>Use 400 Stone</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="stone-2" value="400" min="0"></td>
+                            <td class="points-cell">1</td>
+                            <td><input type="number" class="inventory-input" data-activity="stone-2" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="stone-2">0</td>
+                        </tr>
+                        <tr>
+                            <td>Use 200 Rubies</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="rubies-2" value="200" min="0"></td>
+                            <td class="points-cell">1</td>
+                            <td><input type="number" class="inventory-input" data-activity="rubies-2" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="rubies-2">0</td>
+                        </tr>
+                        <tr class="stage-total">
+                            <td colspan="5" class="stage-total-label">Stage 2 Total</td>
+                            <td class="stage-total-value" data-stage="stage2">0</td>
+                        </tr>
+
+                        <!-- Stage Three: Global Battles -->
+                        <tr class="stage-header">
+                            <td rowspan="10">Stage Three: Global Battles</td>
+                            <td>Use 1 Diamonds from Packs</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="use-diamonds-3" value="1" min="0"></td>
+                            <td class="points-cell">1000</td>
+                            <td><input type="number" class="inventory-input" data-activity="use-diamonds-3" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="use-diamonds-3">0</td>
+                        </tr>
+                        <tr>
+                            <td>Use 100 Refined Metal</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="refined-metal" value="100" min="0"></td>
+                            <td class="points-cell">400</td>
+                            <td><input type="number" class="inventory-input" data-activity="refined-metal" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="refined-metal">0</td>
+                        </tr>
+                        <tr>
+                            <td>Use 1 Magic Thread</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="magic-thread" value="1" min="0"></td>
+                            <td class="points-cell">400</td>
+                            <td><input type="number" class="inventory-input" data-activity="magic-thread" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="magic-thread">0</td>
+                        </tr>
+                        <tr>
+                            <td>Use 1 Orichalcum</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="orichalcum" value="1" min="0"></td>
+                            <td class="points-cell">600</td>
+                            <td><input type="number" class="inventory-input" data-activity="orichalcum" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="orichalcum">0</td>
+                        </tr>
+                        <tr>
+                            <td>Gather 2 Stones/Timber</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="gather-stones-timber" value="2" min="0"></td>
+                            <td class="points-cell">1</td>
+                            <td><input type="number" class="inventory-input" data-activity="gather-stones-timber" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="gather-stones-timber">0</td>
+                        </tr>
+                        <tr>
+                            <td>Gather 1 Rubies</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="gather-rubies" value="1" min="0"></td>
+                            <td class="points-cell">1</td>
+                            <td><input type="number" class="inventory-input" data-activity="gather-rubies" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="gather-rubies">0</td>
+                        </tr>
+                        <tr>
+                            <td>Complete 1 Bounty</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="complete-bounty" value="1" min="0"></td>
+                            <td class="points-cell">2000</td>
+                            <td><input type="number" class="inventory-input" data-activity="complete-bounty" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="complete-bounty">0</td>
+                        </tr>
+                        <tr>
+                            <td>Kill level 30 Mobs on the world map</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="kill-mobs-30" value="1" min="0"></td>
+                            <td class="points-cell">1200</td>
+                            <td><input type="number" class="inventory-input" data-activity="kill-mobs-30" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="kill-mobs-30">0</td>
+                        </tr>
+                        <tr>
+                            <td>Kill level 9 Bosses on the world map</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="kill-bosses-9" value="1" min="0"></td>
+                            <td class="points-cell">3000</td>
+                            <td><input type="number" class="inventory-input" data-activity="kill-bosses-9" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="kill-bosses-9">0</td>
+                        </tr>
+                        <tr>
+                            <td>Help in Rally</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="help-rally" value="1" min="0"></td>
+                            <td class="points-cell">100</td>
+                            <td><input type="number" class="inventory-input" data-activity="help-rally" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="help-rally">0</td>
+                        </tr>
+                        <tr class="stage-total">
+                            <td colspan="5" class="stage-total-label">Stage 3 Total</td>
+                            <td class="stage-total-value" data-stage="stage3">0</td>
+                        </tr>
+
+                        <!-- Stage Four: Call of the Hero -->
+                        <tr class="stage-header">
+                            <td rowspan="9">Stage Four: Call of the Hero</td>
+                            <td>Use 1 Diamonds from Packs</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="use-diamonds-4" value="1" min="0"></td>
+                            <td class="points-cell">1000</td>
+                            <td><input type="number" class="inventory-input" data-activity="use-diamonds-4" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="use-diamonds-4">0</td>
+                        </tr>
+                        <tr>
+                            <td>Use 100 Refined Metal</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="refined-metal-4" value="100" min="0"></td>
+                            <td class="points-cell">400</td>
+                            <td><input type="number" class="inventory-input" data-activity="refined-metal-4" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="refined-metal-4">0</td>
+                        </tr>
+                        <tr>
+                            <td>Use 1 Magic Thread</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="magic-thread-4" value="1" min="0"></td>
+                            <td class="points-cell">400</td>
+                            <td><input type="number" class="inventory-input" data-activity="magic-thread-4" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="magic-thread-4">0</td>
+                        </tr>
+                        <tr>
+                            <td>Use 1 Orichalcum</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="orichalcum-4" value="1" min="0"></td>
+                            <td class="points-cell">600</td>
+                            <td><input type="number" class="inventory-input" data-activity="orichalcum-4" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="orichalcum-4">0</td>
+                        </tr>
+                        <tr>
+                            <td>Use 1 Recruitment Shard</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="recruitment-shard" value="1" min="0"></td>
+                            <td class="points-cell">2000</td>
+                            <td><input type="number" class="inventory-input" data-activity="recruitment-shard" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="recruitment-shard">0</td>
+                        </tr>
+                        <tr>
+                            <td>Use 1 Hero Shard - Epic</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="hero-shard-epic" value="1" min="0"></td>
+                            <td class="points-cell">1000</td>
+                            <td><input type="number" class="inventory-input" data-activity="hero-shard-epic" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="hero-shard-epic">0</td>
+                        </tr>
+                        <tr>
+                            <td>Use 1 Hero Shard - Legendary</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="hero-shard-legendary" value="1" min="0"></td>
+                            <td class="points-cell">4000</td>
+                            <td><input type="number" class="inventory-input" data-activity="hero-shard-legendary" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="hero-shard-legendary">0</td>
+                        </tr>
+                        <tr>
+                            <td>Use 1 Hero Shard - Mythic</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="hero-shard-mythic" value="1" min="0"></td>
+                            <td class="points-cell">4000</td>
+                            <td><input type="number" class="inventory-input" data-activity="hero-shard-mythic" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="hero-shard-mythic">0</td>
+                        </tr>
+                        <tr>
+                            <td>Use any Soul Stone</td>
+                            <td class="units-column"><input type="number" class="units-input" readonly data-activity="soul-stone" value="1" min="0"></td>
+                            <td class="points-cell">120000</td>
+                            <td><input type="number" class="inventory-input" data-activity="soul-stone" value="0" min="0"></td>
+                            <td class="total-cell" data-activity="soul-stone">0</td>
+                        </tr>
+                        <tr class="stage-total">
+                            <td colspan="5" class="stage-total-label">Stage 4 Total</td>
+                            <td class="stage-total-value" data-stage="stage4">0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+        <footer>
+            <p>Points Calculator for KvK Four Nations</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
